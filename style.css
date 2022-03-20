@@ -16,24 +16,6 @@ body {
     rgba(161, 172, 184, 1) 100%
   );
 }
-.replay {
-  background-color: #1a59cc;
-  color: #fff;
-  font-family: inherit;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.replay:focus {
-  outline: none;
-}
-
-.replay:active {
-  transform: scale(0.98);
-}
 
 h4 {
   font-size: 20px;
@@ -112,6 +94,11 @@ h4 {
   transform: translate(-50%, -50%) rotate(0deg);
   animation: goIn 0.5s ease-in-out;
 }
+
+.nums span.out {
+  animation: goOut 0.5s ease-in-out;
+}
+
 @keyframes goIn {
   0% {
     transform: translate(-50%, -50%) rotate(120deg);
@@ -129,9 +116,6 @@ h4 {
     transform: translate(-50%, -50%) rotate(0deg);
   }
 }
-.nums span.out {
-  animation: goOut 0.5s ease-in-out;
-}
 
 @keyframes goOut {
   0% {
@@ -145,4 +129,43 @@ h4 {
   100% {
     transform: translate(-50%, -50%) rotate(-120deg);
   }
+}
+
+#replay {
+  background-color: #3498db;
+  border-radius: 3px;
+  border: none;
+  color: aliceblue;
+  padding: 15px 20px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#replay span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+}
+
+#replay span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: -3px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#replay:hover span {
+  padding-right: 25px;
+}
+
+#replay:hover span:after {
+  opacity: 1;
+  right: 0;
 }
